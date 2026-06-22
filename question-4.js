@@ -14,25 +14,33 @@ const alphaTech = [
     { name: 'Grace', age: 20, department: 'Engineering' }
   ];
   
-
-const alphaTechWithCompany = alphaTech.map(employee => ({
+// add () to employee
+const alphaTechWithCompany = alphaTech.map((employee) => ({
   ...employee,
   company: "alphaTech"
 }));
 
-const betaSoftWithCompany = betaSoft.map(employee => ({
+// add () to employee
+const betaSoftWithCompany = betaSoft.map((employee) => ({
   ...employee,
   company: "betaSoft"
 }));
 
-const allEmployees = [...alphaTechWithCompany, ...betaSoftWithCompany];
+// gammaDev is must also be included
+const gammaDevtWithCompany = gammaDev.map((employee) => ({
+  ...employee,
+  company: "gammaDev"
+}));
 
+const allEmployees = [...alphaTechWithCompany, ...betaSoftWithCompany, ...gammaDevtWithCompany];
+
+// correct word Engineering 
 const result = allEmployees.filter((employee) => {
-  return employee.department === 'Enginring' && employee.age >= 20;
+  return employee.department === 'Engineering' && employee.age >= 20;
 }).map((employee) => {
   return {
     name: employee.name,
-    company: '' 
+    company: employee.company // change '' to employee.company
   };
 });
 
